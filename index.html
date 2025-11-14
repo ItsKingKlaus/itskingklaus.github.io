@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Bitcount Single' rel='stylesheet'>
+    <title>Proof of Concept</title>
+    <style>
+      body { 
+        margin: 0;
+        font-family: 'Bitcount Single';font-size: 48px; 
+      }
+    </style>
+  </head>
+  <body>
+    <!--<script type="module" src="/main.js"></script> -->
+    <center>
+    <p> This is a proof of concept</p>
+    </center>
+
+    <!-- Background Colour -->
+    <style>
+    body {
+      background-color: #e6e6e6;
+    }
+
+    * {
+      box-sizing: border-box;
+    }    
+    
+    /*https://www.w3schools.com/css/css3_flexbox_responsive.asp*/
+
+
+    /*for the imgs */
+    .container > img {
+      display:none;
+      top: 50%; 
+      left: 50%; 
+      width:1000px; 
+      -ms-transform: 
+      translate(-50%, -50%); 
+      transform: translate(-50%, -50%);
+      border: 3px solid black;
+    };
+
+    .centered {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;  /* prevents edge touch on small screens */
+    }
+  
+    /*button container*/
+    .bContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 10% 2px;
+      width:70%;
+      margin: 0 auto;
+    }
+    
+    .block {
+      flex: 25%;
+      max-width: 200px;
+      padding: 0 4px;
+    }
+
+
+    @media screen and (max-width:1500px) {
+      .bContainer {
+        width: 100%;
+        padding: 35% 80px;
+        justify-content:space-between;
+      }
+    }
+
+    .block button {
+      background-color: rgb(153, 167, 172); /*background */
+      border: 4px ridge black; /*border */
+      border-radius: 15px 50px;
+    
+
+      color: black; /*text */
+      font-family: 'Bitcount Single';
+      font-size: 30px;
+      cursor: pointer; /* Pointer/hand icon */
+      /*float: left; /* Float the buttons side by side */
+
+      /*width:350px;*/
+      margin-top: 8px;
+      vertical-align: middle;
+      padding: 20px 30px;  
+      margin-bottom: 10px;
+    }
+    
+
+    @media screen and (max-height: 1500px) {
+      .block button {
+        font-size: 40%;
+        padding: 10px 20px;  
+      }
+    }
+
+    @media screen and (max-height: 1000px) {
+      .block button {
+        font-size: 40%;
+        padding: 10px 20px;  
+      }
+    }
+
+    .block button:hover {
+      background-color: rgb(255, 2, 2) ;
+      color: rgb(255, 255, 255); /*text*/
+    }
+
+    .blockContainer {
+      display: grid;
+      place-content: center;  /* centers the grid tracks themselves */
+      min-height: 1vh;
+      flex-direction: column;
+      align-items: center;
+      align-content:center;
+      /*background-color: DodgerBlue;*/
+    }
+    </style>
+    
+    <div class = "bContainer">
+      <div class="block">
+        <button onclick="toggleLArm()">Human Left Arm</button>
+        <button onclick="toggleRArm()">Human Right Arm</button>
+        <button onclick="togglebigArmL()">Big Arm Left</button>
+        <button onclick="togglebigArmR()">Big Arm Right</button>
+
+        <button  onclick="toggleLeg1()">Leg 1</button>
+        <button onclick="toggleLeg2()">Leg 2</button>
+      </div>
+
+      <div class="block"> 
+        <button onclick="togglehead()">Head Antennae</button>
+
+        <button onclick="toggleBackAL()">Back Arm Left</button>
+        <button onclick="toggleBackAR()">Back Arm Right</button>
+        <button onclick="togglewingL()">Wing Left</button>
+        <button onclick="togglewingR()">Wing Right</button>
+      </div>
+    </div>
+  
+    <div class="container centered"> 
+      <img id= "Body" src="Base-Body.png" style ="position:absolute; display: block; z-index:-3;">
+      <img id="ArmL" src="hArmL.png" style ="position:absolute; z-index:-2;">
+      <img id="ArmR" src="hArmR.png" style ="position:absolute; z-index:-2;">
+      <img id="bigArmL" src="bigArmL.png" style ="position:absolute;z-index:-1;">
+      <img id="bigArmR" src="bigArmR.png" style ="position:absolute;z-index:-1;">
+
+      <img id="Leg1" src="LegR.png" style ="position:absolute; z-index:-1;">
+      <img id="Leg2" src="Leg2R.png" style ="position:absolute; z-index:-1;">
+      
+      <img id="head" src="Head.png" style ="position:absolute; z-index:-1;">
+
+      <img id="bAL" src="backArmL.png" style ="position:absolute; z-index:-4;">
+      <img id="bAR" src="backArmR.png" style ="position:absolute; ;z-index:-4;">
+      <img id="wingL" src="wingL.png" style ="position:absolute; z-index:-4;">
+      <img id="wingR" src="wingR.png" style ="position:absolute; z-index:-4;">
+
+    </div>
+
+
+    <script>
+      toggleLArm()
+      toggleRArm()
+      togglebigArmL()
+      togglebigArmR()
+      toggleLeg2()
+      togglehead()
+      toggleBackAL()
+      toggleBackAR()
+      togglewingL()
+      togglewingR()
+      
+      
+      function toggleLArm() {
+        var x = document.getElementById("ArmL");
+        var y = document.getElementById("bigArmL");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function toggleRArm() {
+        var x = document.getElementById("ArmR");
+        var y = document.getElementById("bigArmR");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function togglebigArmL() {
+        var x = document.getElementById("bigArmL");
+        var y = document.getElementById("ArmL");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function togglebigArmR() {
+        var x = document.getElementById("bigArmR");
+        var y = document.getElementById("ArmR");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function toggleLeg1() {
+        var x = document.getElementById("Leg1");
+        var y = document.getElementById("Leg2");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function toggleLeg2() {
+        var x = document.getElementById("Leg2");
+        var y = document.getElementById("Leg1");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function togglehead() {
+        var x = document.getElementById("head");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function toggleBackAL() {
+        var x = document.getElementById("bAL");
+        var y = document.getElementById("wingL");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function toggleBackAR() {
+        var x = document.getElementById("bAR");
+        var y = document.getElementById("wingR");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function togglewingL() {
+        var x = document.getElementById("wingL");
+        var y = document.getElementById("bAL");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+      function togglewingR() {
+        var x = document.getElementById("wingR");
+        var y = document.getElementById("bAR");
+        if (x.style.display === "none" && y.style.display === "none") {
+          x.style.display = "block";
+        } else if (x.style.display === "block" && y.style.display === "none") {
+          x.style.display = "none";
+        } else if (x.style.display === "none" && y.style.display === "block") {
+          y.style.display = "none";
+          x.style.display = "block";      
+        } else {
+          x.style.display = "none";
+        }
+      } 
+
+    </script>
+
+  </body>
+</html>
+    
