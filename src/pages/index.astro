@@ -1,0 +1,45 @@
+---
+import Base from "../templates/base.astro"
+import "../css/blogstyle.css"
+---
+
+<Base title="Howell's Blog">
+
+    <!-- ---------------------------HEADER-------------------------->
+    <style>
+        body {
+            background-image: url("/images/background.jpg"); /*bkgd img*/
+            background-attachment: fixed;
+            background-size: contain;
+        }
+    </style>
+
+
+    <header>
+        <div class="headercontainer">
+            <a href="/">
+                <button class="iconbtn button"></button>
+            </a>
+            <a href="/">
+                <h1>Howell's Blog</h1>
+            </a> 
+        </div>
+    </header>
+    <div class="navbar" id="navbar">
+        <a href="/InkShader">Ink Shader [FMP E2]</a>
+        <a href="/POC">Proof of Concept [FMP E1]</a>
+        <a href="https://23008102.myblog.arts.ac.uk">&gt; Blog &lt;</a>
+        <a href="https://www.artstation.com/kingklaus">&gt; Artstation &lt; </a>
+    </div>
+
+    <div class="flex-container">
+        <a href="/InkShader">
+            <img src="/images/Ink Shader image.png" alt="Ink Shader image">
+        </a>
+        <a href="/POC">
+            <img src="/images/Proof of Concept image.png" alt="Proof of Concept image">
+        </a>
+    </div>
+
+</Base>
+

@@ -1,14 +1,14 @@
 {
   "dependencies": {
-    "serve": "^14.2.6",
+    "astro": "^6.4.8",
     "three": "^0.183.2"
   },
   "devDependencies": {
-    "vite": "^8.0.8"
+    "serve": "^14.2.6"
   },
   "scripts": {
-    "dev": "npx vite",
-    "preview": "npx vite preview",
-    "build": "npx vite build"
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   }
 }
